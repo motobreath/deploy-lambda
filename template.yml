@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  HelloWorld:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: deploy-lambda
+      Handler: index.handler      
+      Code:
+        S3Bucket: cm-lambda-code-deploy
+        S3Key: builds/hello-world.zip
+      Runtime: nodejs12.x
+      Timeout: 300
+      Role: arn:aws:iam::089357728632:role/HelloWorldCloudFormationRole
+  
